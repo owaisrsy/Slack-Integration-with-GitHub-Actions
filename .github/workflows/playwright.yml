@@ -17,6 +17,7 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
+    - run: npx playwright install   # Add this line to install Playwright browsers
     - run: npm test
 
     - name: Get Allure history
