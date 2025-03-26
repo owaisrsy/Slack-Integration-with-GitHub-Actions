@@ -51,7 +51,7 @@ jobs:
       if: always()
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-        SLACK_USERNAME: sajid
+        SLACK_USERNAME: Owais
         SLACK_TITLE: "Environment: Production \n Build Status: ${{ job.status }}"
         SLACK_COLOR: ${{ job.status }}
-        SLACK_FOOTER: see report at https://sajidmanzoor.github.io/FlexiSkip-Automation-with-Playwright/
+        SLACK_FOOTER: see report at https://owaisrsy.github.io/Slack-Integration-with-GitHub-Actions/
