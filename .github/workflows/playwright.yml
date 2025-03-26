@@ -1,16 +1,18 @@
-name: Slack Notification
+name: Notify Slack on Push
 
 on:
- workflow_dispatch:
- 
+  push:
+    branches:
+      - main
+
 jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-      - name: Send Slack message
-        uses: slackapi/slack-github-action@v1
-        with:
-          channel-id: "#automation-reports"
-          slack-message: "🚀 A new push to the main branch!"
+      - name: Send notification to Slack
+        uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_MESSAGE: "🚀 A new push has been made to the main branch!"
+          SLACK_USERNAME: "GitHub Actions"
+          SLACK_ICON_EMOJI: ":octocat:"
